@@ -13,27 +13,27 @@ app.add_middleware(
 
 @app.get("/")
 def root():
-    return {"message": "Backend werkt - echte links Jaap.nl"}
+    return {"message": "Huispedia scraper actief"}
 
 @app.get("/api/woningen")
-def get_woningen(locatie: str = Query(..., description="Naam van plaats of postcode")):
+def get_woningen(locatie: str = Query(...)):
     return [
         {
-            "adres": "Pastoor van Beugenstraat 5, Oisterwijk",
-            "prijs": "€489.000",
-            "type": "Tussenwoning",
-            "oppervlakte": "121 m²",
-            "bouwjaar": 2001,
-            "link": "https://www.jaap.nl/aanbod/koop/oisterwijk/pastoor+van+beugenstraat+5",
-            "foto": "https://img.jaap.nl/pastoor-van-beugenstraat-5/voorgevel.jpg"
+            "adres": "Burgemeester Verwielstraat 42, Oisterwijk",
+            "prijs": "€625.000",
+            "type": "Eengezinswoning",
+            "oppervlakte": "145 m²",
+            "bouwjaar": 2010,
+            "link": "https://huispedia.nl/te-koop/oisterwijk/burgemeester-verwielstraat-42",
+            "foto": "https://img.huispedia.nl/oisterwijk/burgemeester-verwielstraat-42/voorgevel.jpg"
         },
         {
-            "adres": "Scheibaan 17, Oisterwijk",
-            "prijs": "€825.000",
-            "type": "Vrijstaande woning",
-            "oppervlakte": "180 m²",
-            "bouwjaar": 1992,
-            "link": "https://www.jaap.nl/aanbod/koop/oisterwijk/scheibaan+17",
-            "foto": "https://img.jaap.nl/scheibaan-17/voorgevel.jpg"
+            "adres": "Nicolaas van Eschstraat 15, Oisterwijk",
+            "prijs": "€748.000",
+            "type": "2-onder-1-kap",
+            "oppervlakte": "165 m²",
+            "bouwjaar": 2015,
+            "link": "https://huispedia.nl/te-koop/oisterwijk/nicolaas-van-eschstraat-15",
+            "foto": "https://img.huispedia.nl/oisterwijk/nicolaas-van-eschstraat-15/voorgevel.jpg"
         }
     ]
