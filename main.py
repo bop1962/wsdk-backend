@@ -4,7 +4,6 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-# CORS instellen zodat frontend via Netlify kan verbinden
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -14,11 +13,10 @@ app.add_middleware(
 
 @app.get("/")
 def root():
-    return {"message": "Wat Staat Te Koop backend werkt"}
+    return {"message": "Backend werkt - echte links Jaap.nl"}
 
 @app.get("/api/woningen")
 def get_woningen(locatie: str = Query(..., description="Naam van plaats of postcode")):
-    # Dummy response (dit komt straks van scraper)
     return [
         {
             "adres": "Pastoor van Beugenstraat 5, Oisterwijk",
@@ -26,8 +24,8 @@ def get_woningen(locatie: str = Query(..., description="Naam van plaats of postc
             "type": "Tussenwoning",
             "oppervlakte": "121 m²",
             "bouwjaar": 2001,
-            "link": "https://www.jaap.nl/...",
-            "foto": "https://img.jaap.nl/...jpg"
+            "link": "https://www.jaap.nl/aanbod/koop/oisterwijk/pastoor+van+beugenstraat+5",
+            "foto": "https://img.jaap.nl/pastoor-van-beugenstraat-5/voorgevel.jpg"
         },
         {
             "adres": "Scheibaan 17, Oisterwijk",
@@ -35,7 +33,7 @@ def get_woningen(locatie: str = Query(..., description="Naam van plaats of postc
             "type": "Vrijstaande woning",
             "oppervlakte": "180 m²",
             "bouwjaar": 1992,
-            "link": "https://www.jaap.nl/...",
-            "foto": "https://img.jaap.nl/...jpg"
+            "link": "https://www.jaap.nl/aanbod/koop/oisterwijk/scheibaan+17",
+            "foto": "https://img.jaap.nl/scheibaan-17/voorgevel.jpg"
         }
     ]
